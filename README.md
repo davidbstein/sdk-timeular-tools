@@ -2,11 +2,11 @@
 
 a completely unofficial timeular python SDK and some simple utilities and notebooks
 
-The Timeular v3 API docs can be found (here)[https://developers.timeular.com/].
+The Timeular v3 API docs can be found [here](https://developers.timeular.com/).
 
 ## Usage
 
-See the (notebooks)[./notebooks] directory for usage examples.
+See the [notebooks](./notebooks) directory for usage examples.
 
 ```
 from timeular import timeular
