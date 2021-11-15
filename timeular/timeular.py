@@ -65,9 +65,9 @@ class TimeularSession(object):
     return _parse_all_dts(resp.json())
 
 
-  def _post(self, path, payload):
+  def _post(self, path, payload=None):
     resp = self._sess.request(
-      "POST", f"{_V3}/{path}", data=json.dumps(payload)
+      "POST", f"{_V3}/{path}", data=json.dumps(payload || {})
     )
     if self._VERBOSE:
       print(f"POST v3/{path} -- {resp.status_code}")
@@ -76,11 +76,11 @@ class TimeularSession(object):
     return resp.json()
 
 
-  def _patch(self, path, payload):
+  def _patch(self, path, payload=None):
     assert not self._edit_lock, "this session was initiated with no_edit_mode=True"
     print(payload)
     resp = self._sess.request(
-      "PATCH", f"{_V3}/{path}", data=json.dumps(payload)
+      "PATCH", f"{_V3}/{path}", data=json.dumps(payload || {})
     )
     if self._VERBOSE:
       print(f"PATCH v3/{path} -- {resp.status_code}")
